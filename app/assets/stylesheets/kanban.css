@@ -1,0 +1,40 @@
+#kanban{
+  border-top:4px solid #CCC;
+  margin: 1% 0 0 0
+}
+
+#kanban .coll {
+  float: left;
+  width: 20%;
+  min-height:600px;
+  border-right:4px solid #CCC;
+  padding:20px;
+}
+
+div.item_drag {
+  margin: 7px;
+  border: 1px solid #ccc;
+  padding: 0 7px 7px;
+}
+
+#kanban h2 {
+  cursor: move !important;
+  padding: 3px;
+}
+
+div.recebeDrag {
+  min-height: 50px;
+}
+
+.dragAjuda {
+  border: 3px dashed #0066CC;
+  width: auto !important;
+}
+
+.dragAtivo {
+  background-color: #f7f7f7;
+}
+
+.dragHover {
+  background-color: #F0F1FF;
+}

@@ -55,11 +55,26 @@ Pkanban::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  # root :to => 'users#sign_in'
+  # root da app
+ 
+  authenticated :user do
+    root :to => "sprints#index"
+  end
+  unauthenticated :user do
+    devise_scope :user do 
+      get "/" => "devise/sessions#new"
+    end
+  end
 
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+  resources :tasks do 
+    member do
+      get :kanban 
+    end
+  end
 end

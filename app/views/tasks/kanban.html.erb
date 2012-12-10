@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'New Task', new_task_path %>
+<%= link_to 'Back', tasks_path %>
+
+<div id="kanban">
+
+  <div id="coll-01" class="recebeDrag coll">
+    <h1>Back Log</h1> 
+
+    <% @tasks.each do |task| %>
+      <div class="item_drag">
+        <h2><%= task.id %> - Priority <%= task.priority %></h2>
+        <%= task.name %>
+      </div>
+    <% end %>
+
+  </div>
+
+  <div id="coll-02" class="recebeDrag coll">
+    <h1>Em Andamento</h1> 
+  </div>
+
+  <div id="coll-03" class="recebeDrag coll">
+    <h1>Em Impedimento</h1> 
+  </div>
+
+  <div id="coll-04" class="recebeDrag coll">
+    <h1>Done</h1> 
+  </div>
+
+</div>
+
+

@@ -5,6 +5,7 @@ class CreateTasks < ActiveRecord::Migration
       t.string :name
       t.string :color
       t.decimal :priority
+      t.decimal :column
       t.date :date_init
       t.date :date_end
       t.text :obs
