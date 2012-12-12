@@ -4,66 +4,65 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/kanban
   def kanban
-    @tasks = Task.where(:Sprint_id => params[:id])
+    @coll_01 = Task.where(:Sprint_id => params[:id], :column => 1)
+    @coll_02 = Task.where(:Sprint_id => params[:id], :column => 2)
+    @coll_03 = Task.where(:Sprint_id => params[:id], :column => 3)
+    @coll_04 = Task.where(:Sprint_id => params[:id], :column => 4)
   end
 
-  # GET /tasks/new
-  # GET /tasks/new.json
-  def new
-    @task = Task.new
+  # AJAX /tasks/sort
+  def sort
+    
+    #@books = Book.all
+    #@books.each do |book|
+    #  book.position = params['book'].index(book.id.to_s) + 1
+    #  book.save
+    #end
+    debug(params)
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @task }
-    end
+    render :nothing => true
+  end  
+
+  # GET /tasks/new
+  def new
+    @task       = Task.new
+    @sprint_id  = params[:id] 
   end
 
   # GET /tasks/1/edit
   def edit
-    @task = Task.find(params[:id])
+    @task       = Task.find(params[:id])
+    @sprint_id  = @task.Sprint_id
   end
 
   # POST /tasks
-  # POST /tasks.json
   def create
     @task = Task.new(params[:task])
 
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to @task, :notice => 'Task was successfully created.' }
-        format.json { render :json => @task, :status => :created, :location => @task }
-      else
-        format.html { render :action => "new" }
-        format.json { render :json => @task.errors, :status => :unprocessable_entity }
-      end
+    if @task.save
+      redirect_to :action=>'kanban', :id=>params[:task][:Sprint_id]
+    else
+      render :action => "new" 
     end
   end
 
   # PUT /tasks/1
-  # PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
 
-    respond_to do |format|
-      if @task.update_attributes(params[:task])
-        format.html { redirect_to @task, :notice => 'Task was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render :action => "edit" }
-        format.json { render :json => @task.errors, :status => :unprocessable_entity }
-      end
+    if @task.update_attributes(params[:task])
+      redirect_to :action=>'kanban', :id=>params[:task][:Sprint_id]
+    else
+      render :action => "edit"
     end
   end
 
   # DELETE /tasks/1
-  # DELETE /tasks/1.json
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
 
-    respond_to do |format|
-      format.html { redirect_to tasks_url }
-      format.json { head :no_content }
-    end
+    redirect_to :back
   end
+
 end

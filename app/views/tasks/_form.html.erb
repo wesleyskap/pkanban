@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <%= f.text_field :Sprint_id %>
+  <%= f.hidden_field :Sprint_id, :value => @sprint_id %>
   <%= f.text_field :column %>
 
   <div class="field">
@@ -24,7 +24,7 @@
   </div>
   <div class="field">
     <%= f.label :priority %><br />
-    <%= f.text_field :priority %>
+    <%= select_tag "task[priority]", options_for_select([ "1.0", "3.0", "5.0", "8.0" ], @task.priority) %>
   </div>
   <div class="field">
     <%= f.label :date_init %><br />

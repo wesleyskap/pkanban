@@ -1,28 +1,34 @@
 <p id="notice"><%= notice %></p>
+<%= link_to 'New Task', :controller => 'tasks', :action => :new, :id => params[:id] %></td>
+<%= link_to 'Back', sprints_path %>
 
-<%= link_to 'New Task', new_task_path %>
-<%= link_to 'Back', tasks_path %>
+
+<div id="logger">
+  <div id="coll_debug_01"></div>
+  <div id="coll_debug_02"></div>
+</div>
+
 
 <div id="kanban">
 
   <div id="coll-01" class="recebeDrag coll">
     <h1>Back Log</h1> 
-
-    <% @tasks.each do |task| %>
-      <div class="item_drag">
-        <h2><%= task.id %> - Priority <%= task.priority %></h2>
-        <%= task.name %>
+    <% @coll_01.each do |task| %>
+      <div class="item_drag" id="<%= task.id %>">
+        <h2 style="background:<%= task.color %>"><%= task.id %> - Priority <%= task.priority %></h2>
+        <p><%= task.name %></p>
+        <%= link_to 'Edit', :controller => 'tasks', :action => :edit, :id => task.id %>
+        <%= link_to 'Delete', task, :method => :delete, :data => { :confirm => 'Are you sure?' } %>
       </div>
     <% end %>
-
   </div>
 
   <div id="coll-02" class="recebeDrag coll">
-    <h1>Em Andamento</h1> 
+    <h1>In Progress</h1> 
   </div>
 
   <div id="coll-03" class="recebeDrag coll">
-    <h1>Em Impedimento</h1> 
+    <h1>Offside</h1> 
   </div>
 
   <div id="coll-04" class="recebeDrag coll">

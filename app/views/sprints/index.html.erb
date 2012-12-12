@@ -15,7 +15,7 @@
     <td><%= sprint.name %></td>
     <td><%= sprint.date_init %></td>
     <td><%= sprint.date_end %></td>
-    <td><%= link_to 'Show', :controle => 'tasks', :method => :kanban, :id => sprint.id %></td>
+    <td><%= link_to 'Show', :controller => 'tasks', :action => :kanban, :id => sprint.id %></td>
     <td><%= link_to 'Edit', edit_sprint_path(sprint) %></td>
     <td><%= link_to 'Destroy', sprint, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
