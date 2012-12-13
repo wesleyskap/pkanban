@@ -11,29 +11,28 @@ $(document).ready(function () {
 				onChange 		  : function()
 				{	  
   			 
-					var coll_01 = $.SortSerialize('coll-01');
-					var coll_02 = $.SortSerialize('coll-02');
-					var coll_03 = $.SortSerialize('coll-03');
-					var coll_04 = $.SortSerialize('coll-04');
+					var coll_01 = $.SortSerialize('coll_01');
+					var coll_02 = $.SortSerialize('coll_02');
+					var coll_03 = $.SortSerialize('coll_03');
+					var coll_04 = $.SortSerialize('coll_04');
        
           var mhash   =  coll_01.hash + "&" + coll_02.hash + "&" + coll_03.hash + "&" + coll_04.hash;
 
-					$('#logger').text( mhash );
-
           $.ajax({
-            url: "tasks/sort",
+            url: "/tasks/sort",
             type: "POST",
             data: mhash,
+            dataType: 'html'
           });
 
 				},
 				onStart : function()
 				{
-					//$.iAutoscroller.start(this, document.getElementsByTagName('body'));
+					$.iAutoscroller.start(this, document.getElementsByTagName('body'));
 				},
 				onStop : function()
 				{
-					//$.iAutoscroller.stop();
+					$.iAutoscroller.stop();
 				}
 			}
 		);

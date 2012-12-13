@@ -78,4 +78,7 @@ Pkanban::Application.routes.draw do
       get :kanban 
     end
   end
+
+  match 'tasks/sort' => 'tasks#sort', :via => [:post]
+
 end

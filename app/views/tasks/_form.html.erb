@@ -12,7 +12,10 @@
   <% end %>
 
   <%= f.hidden_field :Sprint_id, :value => @sprint_id %>
-  <%= f.text_field :column %>
+
+  <% if params[:action] == 'new'%>
+    <%= f.hidden_field :column, :value => '1.0' %>
+  <% end %>
 
   <div class="field">
     <%= f.label :name %><br />

@@ -10,15 +10,16 @@ class TasksController < ApplicationController
     @coll_04 = Task.where(:Sprint_id => params[:id], :column => 4)
   end
 
-  # AJAX /tasks/sort
+  # POST /tasks/sort
   def sort
-    
-    #@books = Book.all
-    #@books.each do |book|
-    #  book.position = params['book'].index(book.id.to_s) + 1
-    #  book.save
-    #end
-    debug(params)
+    for i in 1..4
+      @coll = 'coll_0' + i.to_s()
+      if params[@coll]
+        params[@coll].each do |id|
+          Task.update(id, :column => i)
+        end
+      end
+    end
 
     render :nothing => true
   end  
