@@ -61,11 +61,7 @@ Pkanban::Application.routes.draw do
   authenticated :user do
     root :to => "sprints#index"
   end
-  unauthenticated :user do
-    devise_scope :user do 
-      get "/" => "devise/sessions#new"
-    end
-  end
+  
 
   # See how all your routes lay out with "rake routes"
 
@@ -80,5 +76,7 @@ Pkanban::Application.routes.draw do
   end
 
   match 'tasks/sort' => 'tasks#sort', :via => [:post]
+
+  root :to => "page#home"
 
 end

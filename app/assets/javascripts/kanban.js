@@ -6,7 +6,7 @@ $(document).ready(function () {
 				helperclass		: 'dragAjuda',
 				activeclass 	: 'dragAtivo',
 				hoverclass 		: 'dragHover',
-				handle			  : 'h2',
+				handle			  : 'h6',
 				opacity			  : 0.7,
 				onChange 		  : function()
 				{	  

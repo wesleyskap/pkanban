@@ -1,34 +1,47 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+﻿<html lang="en">
 <head>
-  <title>Pkanban</title>
-  <meta charset="utf-8">
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PKanban</title>
+<meta content="" name="keywords">
+<meta content="" name="description">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato">
+<%= stylesheet_link_tag    "kanban", "application", :media => "all" %>
+<%= javascript_include_tag "application" %>
+<%= csrf_meta_tags %>
+
 </head>
+
 <body>
-
-<header id="header">
-    <%= link_to 'PKanban', sprints_path, :id => 'logo' %>
-    <nav id="menu">
+<section>
+  <header>
+      <h1>PKanban</h1>
+      <nav id="menu">
         <ul>
-            <li>Sprints</li>
-            <li>Kanban</li>
+          <li><a href="/" alt="home">home</a></li>
+          <li>
+	          <% if user_signed_in? %>
+		          <%=link_to('logout', destroy_user_session_path, :method => :delete, :class => 'user_logged')%>
+	          <% else %>
+		          <%=link_to('login', new_user_session_path)%>
+	          <% end %>	
+	        </li>
         </ul>
-    </nav>
-      <% if user_signed_in? %>
-        <%=link_to('Logout', destroy_user_session_path, :method => :delete, :class => 'user_logged')%>
-      <% end %>
-</header>
-
-<section id="content">
-    <%= yield %>
+      </nav>
+  </header>
 </section>
 
-<footer id="footer">
-    <p>Copyright 2012 PKanban</p>
-</footer>
+<section id="content">
+  <%= yield %>
+</section>  
+
+
+<section>
+  <footer><p>&copy; 2012 - PKanban</footer>
+</section>
+
 
 </body>
 </html>
+

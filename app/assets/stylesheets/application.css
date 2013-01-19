@@ -1,73 +1,436 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
+﻿/*!
+ * HTML Guide Tags v1.0
  *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ * Copyright 2012
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
+ * Designed and built with all the love in the world @andrezip.
  */
 
-body{ 
-    font:2em Arial, Helvetica, sans-serif;
-    border: 0;
-    margin: 0;
-    padding:0; 
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+html, body{
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #FFF;
+	font: 0.8em Verdana, Tahoma, Helvetica, Arial; 
+	color: #444444;
+}
+h1, h2{
+	font-family: "Myriad Pro", lato, Helvetica,Arial,sans-serif;
 }
 
-#header, #footer{
-    float: left;
-    width: 100%;
-    background: #000;
-    color: #FFF;
-    padding: 1% 0;
+h2, h3{
+	font-size: 2.5em;
 }
 
-#header .user_logged{
-    float:right;
-    color: #FFF;
-    margin: 1%;
-} 
-
-#header #logo{
-    color: #CCC;
-    display: block;
-    float: left;
-    font-size: 20px;
-    margin: 2% 0 2% 2%;
-    text-decoration: none;
-} 
-
-#menu{
-    float: left;
-    width: 40%;
-    display: none;
+h3{
+	font-size: 2.2em;
 }
- 
-#menu ul{
+
+h3, h4, h5, h6{ 
+	font-family: lato,serif;
+}
+h4{
+	font-size: 1.8em;
+	color: #444;
+}
+h5{
+	font-size: 1.8em;
+	color: #999;
+}
+strong{
+	font-family: lato,serif;
+	font-size: 1em;
+}
+a, a:hover{
+	color:#444;
+	text-decoration: none;
+}
+
+section header, section footer{	
+	width: 100%;	
+	background: #000;
+	color: #FFF;
+}
+.container {
+	margin: auto;
+	width: 90%;
+	padding: 0 5%
+}
+section header{
+	display: table;
+	height: 80px
+}
+section header h1{
+	display: none;
+}
+section header #menu{
     float: left;
-    width: 100%;
+	width: 100%;	
+}
+section header #menu ul{
     list-style: none;
+} 
+section header #menu ul li{
+	float:left;
+    margin: 2%;
+	text-transform: uppercase;
 }
- 
-#menu ul li{
-    float: left;
-    padding: 2%;
-    background: #FFF;
-    color: #000;
-    margin: 0.5%;
+section header #menu ul li a{
+	color: #C8C8C8;
+    font-size: 1.1em;
+    font-weight: normal;
+    text-transform: uppercase;
+} 
+section header #menu ul li a:hover{
+	color: #578DAC;
 }
 
-#content{
-    float: left;
-    width: 92%;
-    padding: 4%;
+/* site content */
+section#content{
+	display:table;
+	margin: 0 0 5%;
+	width:100%;
 }
 
-#footer{
-    text-align: center;
+/* banner home */
+section#content .banner{
+  position: relative;
+  padding: 3% 0 7% 0;
+  color: #fff;
+  text-align: center;
+  padding: 4%;
+  margin-bottom: 2%;
+  color: inherit;
+  background-color: #eee;
+}
+
+section#content .banner h1 {
+  font-size: 5em;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+section#content .banner p {
+  font-size: 2em;
+  margin-bottom: 4%;
+}
+
+section#content .banner  .masthead-links {
+  margin: 0;
+  list-style: none;
+}
+
+section#content .banner .masthead-links li {
+  display: inline;
+  padding: 0 10px;
+}
+
+section#content .banner .masthead-links li  a {
+  color: #000;
+  text-decoration: underline
+}
+
+section#content .top-line{
+  position: relative;
+  padding: 2% 4%;
+  color: #fff;
+  margin-bottom: 2%;
+  color: inherit;
+  background-color: #eeeeee;
+}
+
+section#content .top-line h1 {
+  font-size: 2.3em;
+  font-weight: bold;
+}
+
+section#content .top-line p {
+  font-size: 1.4em;
+}
+
+/* rows home */
+section#content .row1{
+	float:left;
+	width: 100%;
+	margin: 0 0 0
+}
+
+section#content .row1 .lists{
+  font-family: "Myriad Pro", lato,serif;
+  font-size: 2em;
+}
+
+section#content .row1 .lists li{
+  min-height: 1.5%;
+}
+
+section#content .row1 ul li{
+  min-height: 2em
+}
+
+section#content .row2{
+	float:left;
+	width: 28%;
+	min-height: 26em;
+	margin-right: 1%;	
+	background-color: #f9f9f9;
+	border: 1px solid #CCC;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	padding: 0 1.2%;
+	color: #999
+}
+
+section#content .row-btn{
+	margin: 4% 0;
+	text-align:center;
+}
+
+section#content .space{
+	float:left;
+	width: 100%;
+	height: 3em
+}
+
+/* site help */
+section#content .container #help{
+	float:left;
+	width:200px;
+  min-height: 22em;
+  margin: 0 3% 0 0;
+	padding: 2%;
+	background-color: #f9f9f9;
+	border: 1px solid #CCC;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	line-height: 1.8em;
+}
+
+section#content .container #help h3{
+	font-size: 1.8em
+}
+section#content .container #help a{
+  color: #578DAC;
+}
+/* row adm */
+section#content .container .row-adm{
+	float:left;
+	width:65%;
+	padding: 0 2%;
+	margin: 0 0 3%
+}
+section#content .container .row-adm .field{
+  margin: 0 0 10px 0
+}
+section#content .container .row-adm .btn{
+	float:left;
+}
+section#content .container .row-adm .btn-form{
+  margin: 20px 10px 0 0;
+  padding: 7px 25px
+}
+section#content .container .row-adm a.btn-form{
+  padding: 8px 25px
+}
+
+
+/* row adm */
+section#content .container #btn-kanban{
+  width: 100%;
+  margin: 0 0 20px;
+}
+section#content .container #btn-kanban a{
+  padding: 8px 25px
+}
+
+/* table */
+table {
+  *border-collapse: collapse; /* IE7 and lower */
+  border-spacing: 0;
+  width: 100%;    
+}
+
+.bordered {
+  border: solid #ccc 1px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 1px #ccc; 
+  -moz-box-shadow: 0 1px 1px #ccc; 
+  box-shadow: 0 1px 1px #ccc;         
+}
+
+.bordered tr:hover {
+  background: #fbf8e9;
+  -o-transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;     
+}    
+  
+.bordered td, .bordered th {
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;    
+}
+
+.bordered th {
+  background-color: #eaeaea;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#eaeaea), to(#ccc));
+  background-image: -webkit-linear-gradient(top, #eaeaea, #ccc);
+  background-image:    -moz-linear-gradient(top, #eaeaea, #ccc);
+  background-image:     -ms-linear-gradient(top, #eaeaea, #ccc);
+  background-image:      -o-linear-gradient(top, #eaeaea, #ccc);
+  background-image:         linear-gradient(top, #eaeaea, #ccc);
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
+  -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
+  box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+  border-top: none;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+}
+
+.bordered td:first-child, .bordered th:first-child {
+  border-left: none;
+}
+
+.bordered th:first-child {
+  -moz-border-radius: 6px 0 0 0;
+  -webkit-border-radius: 6px 0 0 0;
+  border-radius: 6px 0 0 0;
+}
+
+.bordered th:last-child {
+  -moz-border-radius: 0 6px 0 0;
+  -webkit-border-radius: 0 6px 0 0;
+  border-radius: 0 6px 0 0;
+}
+
+.bordered th:only-child{
+  -moz-border-radius: 6px 6px 0 0;
+  -webkit-border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
+}
+
+.bordered tr:last-child td:first-child {
+  -moz-border-radius: 0 0 0 6px;
+  -webkit-border-radius: 0 0 0 6px;
+  border-radius: 0 0 0 6px;
+}
+
+.bordered tr:last-child td:last-child {
+  -moz-border-radius: 0 0 6px 0;
+  -webkit-border-radius: 0 0 6px 0;
+  border-radius: 0 0 6px 0;
+}
+
+/* forms */
+
+section#content form{
+	width: 100%;
+}
+
+section#content form label{
+	min-height: 2em;
+}
+
+section#content form input[type="text"], 
+section#content form input[type="email"], 
+section#content form input[type="password"],
+#btn-kanban a{
+	border: 1px solid #CCC;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+  height: 2.5em;
+  margin: 0.5% 0 1.5%;
+  width: 50%;
+}
+
+/* bottom front site */
+.btn,
+input[type="submit"],
+#btn-kanban a{
+	font-family: "Myriad Pro", lato, Helvetica,Arial,sans-serif;
+	font-size: 16px;
+	padding: 10px 40px;
+	background-color:#0060cc;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #348cd6;
+	color:#fff;
+	text-decoration:none;
+	cursor:pointer
+}
+.btn:hover,
+input[type="submit"]:hover,
+#btn-kanban a{
+	background-color:#348cd6;
+	color:#fff;
+}
+.btn-front{
+	font-size: 25px;
+	padding: 20px 60px;
+}
+
+/* site footer */
+section footer{
+	float:left;
+	display: block;
+	height:120px;
+	text-align:center;
+}
+section footer p{
+	color: #444444;
+	margin: 3%
+}
+
+/* midias */
+/* for 1024px or less */
+@media screen and (max-width: 1024px) {
+
+}
+
+/* for 480px or less */
+@media screen and (max-width: 480px) {
+	.container {
+		width:92%;
+		padding: 4%;
+	}
+	section#content .row2{
+		width:98%;
+		min-height: 0;
+		margin: 2% 0;
+		padding: 0 2%
+	}
+	section footer p {
+		margin: 8%;
+	}
+}
+
+/* for 320px or less */
+@media screen and (max-width: 320px) {
+
 }

@@ -12,18 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :nome %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :date_init %><br />
+    <%= f.label :data_inicial %><br />
     <%= f.date_select :date_init %>
   </div>
   <div class="field">
-    <%= f.label :date_end %><br />
+    <%= f.label :date_final %><br />
     <%= f.date_select :date_end %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'salvar', :class => 'btn btn-form' %>
+    <%= link_to_function 'voltar', 'history.back()', :class => 'btn btn-form' %>
   </div>
 <% end %>

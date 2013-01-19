@@ -1,5 +1,15 @@
-<h1>New task</h1>
+<div class="top-line">
+    <h1></h1>
+    <p></p> 
+  </div>
 
-<%= render 'form' %>
+  <div class="container">
+    <div id="help">
+      <h3>Adicionar Tarefa</h3>
+      <p>Inclua aqui os dados de sua tarefa na qual você deseja gerenciar.</p>
+    </div>
 
-<%= link_to 'Back', :action => 'kanban', :id => @sprint_id %>
+    <div class="row-adm">
+      <%= render 'form' %>
+    </div>
+  </div>

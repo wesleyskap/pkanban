@@ -1,0 +1,26 @@
+  <div class="top-line">
+    <h1></h1>
+    <p></p> 
+  </div>
+  <div class="container">
+    <div id="help">
+      <h3>Login</h3>
+      <p>Faça o login no PKanban! Para fazer o login, digite seu e-mail e sua senha no formulário abaixo e clique no botão entrar, caso ainda não é cadastrado no PKanban clique <%=link_to('aqui', new_user_registration_path)%> para realizar o cadastro.</p>
+    </div>
+
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <div><%= f.label :email %><br />
+      <%= f.email_field :email %></div>
+
+      <div><%= f.label :senha %><br />
+      <%= f.password_field :password %></div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div><%= f.check_box :remember_me %> <%= f.label :lembrar_senha %></div>
+      <% end -%>
+
+      <div><%= f.submit "Entrar" %></div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>

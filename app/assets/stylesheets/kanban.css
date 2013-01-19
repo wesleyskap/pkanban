@@ -14,13 +14,19 @@
 div.item_drag {
   margin: 7px;
   border: 1px solid #ccc;
-  padding: 0 7px 7px;
+  padding: 0 0 7px;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+}
+div.item_drag p, div.item_drag a{
+  margin: 10px 0 20px 8px
 }
 
-#kanban h2 {
+#kanban h6 {
   cursor: move !important;
-  padding: 3px;
+  padding: 10px;
   font-size: 12px;
+  margin: 0;
 }
 
 div.recebeDrag {
