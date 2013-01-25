@@ -18,7 +18,8 @@ You can access and use that address all application resources online.
 
 2. Change directory to <tt>myapp</tt> and start the web server:
 
-       <tt>cd myapp; rails server</tt> (run with --help for options)
+        $ cd myapp 
+        $ rails server (run with --help for options)
 
 3. Go to http://localhost:3000/
                   
