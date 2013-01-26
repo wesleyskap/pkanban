@@ -80,6 +80,11 @@ section header{
 section header h1{
 	display: none;
 }
+section header p{
+	float: right;
+  color: #C8C8C8;
+  margin-right: 5%;
+}
 section header #menu{
     float: left;
 	width: 100%;	

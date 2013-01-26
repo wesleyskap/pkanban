@@ -5,12 +5,6 @@ visually.
 
 Application based on HTML5, Ruby on Rails and hosted on Heroku.
  
-
-== Access to the online application
-
-You can access and use that address all application resources online. http://pkanban.herokuapp.com
-
-
 == Getting Started
 
 1. Realize the application chekout:

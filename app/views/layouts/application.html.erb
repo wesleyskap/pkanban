@@ -28,6 +28,9 @@
 	          <% end %>	
 	        </li>
         </ul>
+	      <% if user_signed_in? %>
+          <p><%= current_user.email %></p>
+	      <% end %>	
       </nav>
   </header>
 </section>
@@ -38,7 +41,7 @@
 
 
 <section>
-  <footer><p>&copy; 2012 - PKanban</footer>
+  <footer><p>PKanban 2012 -Licensed under a MIT.</p></footer>
 </section>
 
 
