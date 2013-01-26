@@ -26,7 +26,8 @@ class SprintsController < ApplicationController
   # GET /sprints/1/edit
   def edit
     @sprint = Sprint.find(params[:id])
-
+    
+    # validate 
     self.validate_user(current_user.id, @sprint.User_id)
   end
 
@@ -53,6 +54,9 @@ class SprintsController < ApplicationController
   def update
     @sprint = Sprint.find(params[:id])
 
+    # validate
+    self.validate_user(current_user.id, @sprint.User_id)
+
     respond_to do |format|
       if @sprint.update_attributes(params[:sprint])
         format.html { redirect_to :action => 'index' }
@@ -69,6 +73,7 @@ class SprintsController < ApplicationController
   def destroy
     @sprint = Sprint.find(params[:id])
     
+    # validate
     self.validate_user(current_user.id, @sprint.User_id)
     @sprint.destroy
 

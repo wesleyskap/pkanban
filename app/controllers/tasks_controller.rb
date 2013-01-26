@@ -9,6 +9,7 @@ class TasksController < ApplicationController
     @coll_03 = Task.where(:Sprint_id => params[:id], :column => 3)
     @coll_04 = Task.where(:Sprint_id => params[:id], :column => 4)
     
+    # validate    
     @sprint = Sprint.find(params[:id])
     self.validate_user(current_user.id, @sprint.User_id)
   end
@@ -32,6 +33,7 @@ class TasksController < ApplicationController
     @task       = Task.new
     @sprint_id  = params[:id]
     
+    # validate    
     @sprint = Sprint.find(params[:id])
     self.validate_user(current_user.id, @sprint.User_id)
   end
@@ -41,6 +43,7 @@ class TasksController < ApplicationController
     @task       = Task.find(params[:id])
     @sprint_id  = @task.Sprint_id
     
+    # validate
     @sprint = Sprint.find(@sprint_id)
     self.validate_user(current_user.id, @sprint.User_id)
   end
@@ -49,8 +52,12 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(params[:task])
 
+    # validate
+    @sprint = Sprint.find(params[:task][:Sprint_id])
+    self.validate_user(current_user.id, @sprint.User_id)
+
     if @task.save
-      redirect_to :action=>'kanban', :id=>params[:task][:Sprint_id]
+      redirect_to :action=>'kanban', :id=> params[:task][:Sprint_id]
     else
       render :action => "new" 
     end
@@ -59,6 +66,10 @@ class TasksController < ApplicationController
   # PUT /tasks/1
   def update
     @task = Task.find(params[:id])
+    
+    # validate
+    @sprint = Sprint.find(params[:task][:Sprint_id])
+    self.validate_user(current_user.id, @sprint.User_id)
 
     if @task.update_attributes(params[:task])
       redirect_to :action=>'kanban', :id=>params[:task][:Sprint_id]
