@@ -5,7 +5,7 @@ class SprintsController < ApplicationController
   # GET /sprints
   # GET /sprints.json
   def index
-    @sprints = Sprint.all
+    @sprints = Sprint.where(:User_id => current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,22 +13,10 @@ class SprintsController < ApplicationController
     end
   end
 
-  # GET /sprints/1
-  # GET /sprints/1.json
-  def show
-    @sprint = Sprint.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @sprint }
-    end
-  end
-
   # GET /sprints/new
   # GET /sprints/new.json
   def new
     @sprint = Sprint.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @sprint }
@@ -38,8 +26,11 @@ class SprintsController < ApplicationController
   # GET /sprints/1/edit
   def edit
     @sprint = Sprint.find(params[:id])
+
+    self.validate_user(current_user.id, @sprint.User_id)
   end
 
+  
   # POST /sprints
   # POST /sprints.json
   def create
@@ -48,7 +39,7 @@ class SprintsController < ApplicationController
 
     respond_to do |format|
       if @sprint.save
-        format.html { redirect_to @sprint, :notice => 'Sprint was successfully created.' }
+        format.html { redirect_to :action => 'index' }
         format.json { render :json => @sprint, :status => :created, :location => @sprint }
       else
         format.html { render :action => "new" }
@@ -64,7 +55,7 @@ class SprintsController < ApplicationController
 
     respond_to do |format|
       if @sprint.update_attributes(params[:sprint])
-        format.html { redirect_to @sprint, :notice => 'Sprint was successfully updated.' }
+        format.html { redirect_to :action => 'index' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -77,6 +68,8 @@ class SprintsController < ApplicationController
   # DELETE /sprints/1.json
   def destroy
     @sprint = Sprint.find(params[:id])
+    
+    self.validate_user(current_user.id, @sprint.User_id)
     @sprint.destroy
 
     respond_to do |format|
@@ -84,4 +77,11 @@ class SprintsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def validate_user(session_id, user_id)
+    if ( session_id != user_id )
+      redirect_to :action => 'index'
+    end
+  end
+
 end

@@ -8,6 +8,9 @@ class TasksController < ApplicationController
     @coll_02 = Task.where(:Sprint_id => params[:id], :column => 2)
     @coll_03 = Task.where(:Sprint_id => params[:id], :column => 3)
     @coll_04 = Task.where(:Sprint_id => params[:id], :column => 4)
+    
+    @sprint = Sprint.find(params[:id])
+    self.validate_user(current_user.id, @sprint.User_id)
   end
 
   # POST /tasks/sort
@@ -27,13 +30,19 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task       = Task.new
-    @sprint_id  = params[:id] 
+    @sprint_id  = params[:id]
+    
+    @sprint = Sprint.find(params[:id])
+    self.validate_user(current_user.id, @sprint.User_id)
   end
 
   # GET /tasks/1/edit
   def edit
     @task       = Task.find(params[:id])
     @sprint_id  = @task.Sprint_id
+    
+    @sprint = Sprint.find(@sprint_id)
+    self.validate_user(current_user.id, @sprint.User_id)
   end
 
   # POST /tasks
@@ -61,9 +70,20 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   def destroy
     @task = Task.find(params[:id])
+    
+    # validate
+    @sprint = Sprint.find(@task.Sprint_id)
+    self.validate_user(current_user.id, @sprint.User_id)
+
     @task.destroy
 
     redirect_to :back
+  end
+
+  def validate_user(session_id, user_id)
+    if ( session_id != user_id )
+      redirect_to :controller => 'sprints', :action => 'index'
+    end
   end
 
 end
