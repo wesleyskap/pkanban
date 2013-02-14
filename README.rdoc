@@ -4,17 +4,19 @@ It is a simple way to manage your personal and professional tasks
 visually.
 
 Application based on HTML5, Ruby on Rails and hosted on Heroku.
- 
+
+Visit [pkanban](http://pkanban.herokuapp.com/)
+
 == Getting Started
 
 1. Realize the application chekout:
 
 2. Change directory to <tt>myapp</tt> and start the web server:
 
-        $ cd myapp 
+        $ cd myapp
         $ rails server (run with --help for options)
 
 3. Go to http://localhost:3000/
-                  
+
 
 == LICENSE MIT
