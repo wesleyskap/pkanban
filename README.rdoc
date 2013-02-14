@@ -8,7 +8,6 @@ Application based on HTML5, Ruby on Rails and hosted on Heroku.
 Visit {PKanban}[http://pkanban.herokuapp.com/]
 
 {<img src="http://i.imgur.com/v2XQMSC.jpg" alt="Visit PKanban" />}[http://i.imgur.com/v2XQMSC.jpg]
-
 == Getting Started
 
 1. Realize the application chekout:
