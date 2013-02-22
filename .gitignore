@@ -18,3 +18,4 @@
 nohup.out
 .*.sw?
 .DS_Store
+.idea
