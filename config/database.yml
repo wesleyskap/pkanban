@@ -44,8 +44,8 @@ test:
   encoding: unicode
   database: pkanban_test
   pool: 5
-  username: pkanban
-  password:
+  username: postgres
+  password: root
 
 production:
   adapter: postgresql
