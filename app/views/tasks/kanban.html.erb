@@ -1,7 +1,7 @@
 
 <div class="top-line">
     <h1></h1>
-    <p></p> 
+    <p></p>
   </div>
 
   <div class="container">
@@ -16,11 +16,13 @@
       <div id="kanban">
 
         <div id="coll_01" class="recebeDrag coll">
-          <h1>Back Log</h1> 
+          <h1>Back Log</h1>
           <% @coll_01.each do |task| %>
             <div class="item_drag" id="<%= task.id %>">
               <h6 style="background:<%= task.color %>">Prioridade <%= task.priority %></h6>
               <p><%= task.name %></p>
+              <p>Início: <%= task.date_init %><br/>
+                 Fim: <%= task.date_end %></p>
               <%= link_to 'Editar', :controller => 'tasks', :action => :edit, :id => task.id %>
               <%= link_to 'Deletar', task, :method => :delete, :data => { :confirm => 'Deseja realmente apagar a tarefa?' } %>
             </div>
@@ -41,7 +43,7 @@
         </div>
 
         <div id="coll_03" class="recebeDrag coll">
-          <h1>Offside</h1> 
+          <h1>Offside</h1>
           <% @coll_03.each do |task| %>
             <div class="item_drag" id="<%= task.id %>">
               <h6 style="background:<%= task.color %>">Prioridade <%= task.priority %></h6>
