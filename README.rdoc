@@ -21,7 +21,6 @@ Google+ {Communit}[https://plus.google.com/u/0/communities/113953366879973423158
 
 3. Go to http://localhost:3000/
 
-
 == Contributing
 
 1. Fork it
