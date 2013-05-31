@@ -25,19 +25,20 @@
 		          <%=link_to('logout', destroy_user_session_path, :method => :delete, :class => 'user_logged')%>
 	          <% else %>
 		          <%=link_to('login', new_user_session_path)%>
-	          <% end %>	
+	          <% end %>
 	        </li>
         </ul>
 	      <% if user_signed_in? %>
           <p><%= current_user.email %></p>
-	      <% end %>	
+	      <% end %>
       </nav>
   </header>
 </section>
 
 <section id="content">
+  <%= flash_messages %>
   <%= yield %>
-</section>  
+</section>
 
 
 <section>
