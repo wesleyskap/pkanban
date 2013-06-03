@@ -1,41 +1,37 @@
-  <div class="top-line">
-    <h1></h1>
-    <p></p> 
+<div class="container">
+  <div id="help">
+    <h3>Sprints</h3>
+    <p>No Personal Kanban, os projetos são dividos em ciclos (tipicamente mensais) chamados de Sprints.</p>
+    <p>O Sprint representa um Time Box dentro do qual um conjunto de atividades deve ser executado.</p>
+    <p>Para visualizar seu quadro kanban, basta clicar no link <strong>visualizar</strong> do respectivo sprint.</p>
   </div>
 
-  <div class="container">
-    <div id="help">
-      <h3>Sprints</h3>
-      <p>No Personal Kanban, os projetos são dividos em ciclos (tipicamente mensais) chamados de Sprints.</p>
-      <p>O Sprint representa um Time Box dentro do qual um conjunto de atividades deve ser executado.</p>
-      <p>Para visualizar seu quadro kanban, basta clicar no link <strong>visualizar</strong> do respectivo sprint.</p>
-    </div>
-
-    <div class="row-adm">
-      <%= link_to 'Adicionar', new_sprint_path, :class => 'btn btn-form' %>
-    </div>
-
-    <div class="row-adm">
-      <table class="bordered">
-        <thead>
-          <tr>
-          <th>Nome</th>
-          <th>Data Inicial</th>
-          <th>Date Final</th>
-          <th></th>
-          <th></th>
-          <th></th>
-          </tr>
-        </thead>
-        <% @sprints.each do |sprint| %>
-          <tr>
-            <td><%= sprint.name %></td>
-            <td><%= sprint.date_init %></td>
-            <td><%= sprint.date_end %></td>
-            <td><%= link_to 'Visualizar', :controller => 'tasks', :action => :kanban, :id => sprint.id %></td>
-            <td><%= link_to 'Editar', edit_sprint_path(sprint) %></td>
-            <td><%= link_to 'Excluir', sprint, :method => :delete, :data => { :confirm => 'Deseja realmente excluir?' } %></td>
-          </tr>
-        <% end %>
-        </table>
+  <div class="row-adm">
+    <%= link_to 'Adicionar', new_sprint_path, :class => 'btn btn-form' %>
   </div>
+
+  <div class="row-adm">
+    <table class="bordered">
+      <thead>
+        <tr>
+        <th>Nome</th>
+        <th>Data Inicial</th>
+        <th>Date Final</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        </tr>
+      </thead>
+      <% @sprints.each do |sprint| %>
+        <tr>
+          <td><%= sprint.name %></td>
+          <td><%= sprint.date_init %></td>
+          <td><%= sprint.date_end %></td>
+          <td><%= link_to 'Visualizar', :controller => 'tasks', :action => :kanban, :id => sprint.id %></td>
+          <td><%= link_to 'Editar', edit_sprint_path(sprint) %></td>
+          <td><%= link_to 'Excluir', sprint, :method => :delete, :data => { :confirm => 'Deseja realmente excluir?' } %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

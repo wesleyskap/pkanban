@@ -1,73 +1,67 @@
+<div class="container">
 
-<div class="top-line">
-    <h1></h1>
-    <p></p>
-  </div>
+    <p id="notice"><%= notice %></p>
 
-  <div class="container">
+    <div id="btn-kanban">
+      <%= link_to 'Adicionar', :controller => 'tasks', :action => :new, :id => params[:id] %>
+      <%= link_to 'Voltar', sprints_path %>
+    </div>
 
-      <p id="notice"><%= notice %></p>
+    <div id="kanban">
 
-      <div id="btn-kanban">
-        <%= link_to 'Adicionar', :controller => 'tasks', :action => :new, :id => params[:id] %>
-        <%= link_to 'Voltar', sprints_path %>
+      <div id="coll_01" class="recebeDrag coll">
+        <h1>Back Log</h1>
+        <% @coll_01.each do |task| %>
+          <div class="item_drag" id="<%= task.id %>">
+            <h6 style="background:<%= task.color %>">Prioridade <%= task.priority %></h6>
+            <p><%= task.name %></p>
+            <p>Início: <%= task.date_init %><br/>
+               Fim: <%= task.date_end %></p>
+            <%= link_to 'Editar', :controller => 'tasks', :action => :edit, :id => task.id %>
+            <%= link_to 'Deletar', task, :method => :delete, :data => { :confirm => 'Deseja realmente apagar a tarefa?' } %>
+          </div>
+        <% end %>
       </div>
 
-      <div id="kanban">
-
-        <div id="coll_01" class="recebeDrag coll">
-          <h1>Back Log</h1>
-          <% @coll_01.each do |task| %>
-            <div class="item_drag" id="<%= task.id %>">
-              <h6 style="background:<%= task.color %>">Prioridade <%= task.priority %></h6>
-              <p><%= task.name %></p>
-              <p>Início: <%= task.date_init %><br/>
-                 Fim: <%= task.date_end %></p>
-              <%= link_to 'Editar', :controller => 'tasks', :action => :edit, :id => task.id %>
-              <%= link_to 'Deletar', task, :method => :delete, :data => { :confirm => 'Deseja realmente apagar a tarefa?' } %>
-            </div>
-          <% end %>
-        </div>
-
-        <div id="coll_02" class="recebeDrag coll">
-          <h1>In Progress</h1>
-           <% @coll_02.each do |task| %>
-            <div class="item_drag" id="<%= task.id %>">
-              <h6 style="background:<%= task.color %>">Prioridade <%= task.priority %></h6>
-              <p><%= task.name %></p>
-              <%= link_to 'Editar', :controller => 'tasks', :action => :edit, :id => task.id %>
-              <%= link_to 'Deletar', task, :method => :delete, :data => { :confirm => 'Deseja realmente apagar a tarefa?' } %>
-            </div>
-          <% end %>
-
-        </div>
-
-        <div id="coll_03" class="recebeDrag coll">
-          <h1>Offside</h1>
-          <% @coll_03.each do |task| %>
-            <div class="item_drag" id="<%= task.id %>">
-              <h6 style="background:<%= task.color %>">Prioridade <%= task.priority %></h6>
-              <p><%= task.name %></p>
-              <%= link_to 'Editar', :controller => 'tasks', :action => :edit, :id => task.id %>
-              <%= link_to 'Deletar', task, :method => :delete, :data => { :confirm => 'Deseja realmente apagar a tarefa?' } %>
-            </div>
-          <% end %>
-
-        </div>
-
-        <div id="coll_04" class="recebeDrag coll">
-          <h1>Done</h1>
-           <% @coll_04.each do |task| %>
-            <div class="item_drag" id="<%= task.id %>">
-              <h6 style="background:<%= task.color %>">Prioridade <%= task.priority %></h6>
-              <p><%= task.name %></p>
-              <%= link_to 'Editar', :controller => 'tasks', :action => :edit, :id => task.id %>
-              <%= link_to 'Deletar', task, :method => :delete, :data => { :confirm => 'Deseja realmente apagar a tarefa?' } %>
-            </div>
-          <% end %>
-
-        </div>
+      <div id="coll_02" class="recebeDrag coll">
+        <h1>In Progress</h1>
+         <% @coll_02.each do |task| %>
+          <div class="item_drag" id="<%= task.id %>">
+            <h6 style="background:<%= task.color %>">Prioridade <%= task.priority %></h6>
+            <p><%= task.name %></p>
+            <%= link_to 'Editar', :controller => 'tasks', :action => :edit, :id => task.id %>
+            <%= link_to 'Deletar', task, :method => :delete, :data => { :confirm => 'Deseja realmente apagar a tarefa?' } %>
+          </div>
+        <% end %>
 
       </div>
-  </div>
+
+      <div id="coll_03" class="recebeDrag coll">
+        <h1>Offside</h1>
+        <% @coll_03.each do |task| %>
+          <div class="item_drag" id="<%= task.id %>">
+            <h6 style="background:<%= task.color %>">Prioridade <%= task.priority %></h6>
+            <p><%= task.name %></p>
+            <%= link_to 'Editar', :controller => 'tasks', :action => :edit, :id => task.id %>
+            <%= link_to 'Deletar', task, :method => :delete, :data => { :confirm => 'Deseja realmente apagar a tarefa?' } %>
+          </div>
+        <% end %>
+
+      </div>
+
+      <div id="coll_04" class="recebeDrag coll">
+        <h1>Done</h1>
+         <% @coll_04.each do |task| %>
+          <div class="item_drag" id="<%= task.id %>">
+            <h6 style="background:<%= task.color %>">Prioridade <%= task.priority %></h6>
+            <p><%= task.name %></p>
+            <%= link_to 'Editar', :controller => 'tasks', :action => :edit, :id => task.id %>
+            <%= link_to 'Deletar', task, :method => :delete, :data => { :confirm => 'Deseja realmente apagar a tarefa?' } %>
+          </div>
+        <% end %>
+
+      </div>
+
+    </div>
+</div>
 
