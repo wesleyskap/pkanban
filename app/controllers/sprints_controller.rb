@@ -17,7 +17,6 @@ class SprintsController < ApplicationController
   end
 
   def edit
-    @sprint = Sprint.find(params[:id])
   end
 
   def create
@@ -29,16 +28,12 @@ class SprintsController < ApplicationController
   end
 
   def update
-    @sprint = Sprint.find(params[:id])
-
     flash[:notice] = "Sprint was successfully updated." if @sprint.update_attributes(params[:sprint])
-    respond_with @sprint
+    respond_with @sprint, :location => sprints_path
   end
 
   def destroy
-    @sprint = Sprint.find(params[:id])
-
-    @sprint.destroy
+    flash[:notice] = "Sprint was successfully destroyed."  if @sprint.destroy
     respond_with @sprint
   end
 
@@ -49,7 +44,7 @@ private
 
   def validate_user!
     unless current_user.id == @sprint.User_id
-      flash[:notice] = "Sprint not finded"
+      flash[:notice] = "Sprint not found."
       redirect_to sprints_path
     end
   end
