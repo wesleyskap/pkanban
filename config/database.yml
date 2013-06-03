@@ -18,8 +18,8 @@ development:
   host: localhost
   database: kanban
   pool: 5
-  username: postgres
-  password: root
+  username: wesleyconde
+  password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -44,13 +44,13 @@ test:
   encoding: unicode
   database: pkanban_test
   pool: 5
-  username: postgres
-  password: root
+  username: wesleyconde
+  password:
 
 production:
   adapter: postgresql
   encoding: unicode
   database: pkanban_production
   pool: 5
-  username: pkanban
+  username: wesleyconde
   password:
